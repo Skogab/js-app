@@ -15,3 +15,11 @@
     color: black;
     border: 2px solid #c67a09;
   }
+
+
+  .pokemon-list {
+    margin: 30px;
+    width: 300px;
+    display: grid;
+    }
+
