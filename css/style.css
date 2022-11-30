@@ -1,107 +1,135 @@
-.button-class {
-    background-color: #cb671a; /* Green */
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 2px solid #c67a09;
-  }
+:root {
+  /* colors */
+  --yellow: #ffde00;
+  --blue: #3b3cc4;
 
 
-  .pokemon-list {
-    margin: 30px;
-    width: 300px;
-    display: grid;
-    }
+  /* other properties */
+  --font-weight-h: 700;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-    }
-    
-    #modal-container {
-      position: fixed;
-      padding: 20px;
-      box-sizing: border-box;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      
-      /* to show it above other content */
-      z-index: 999; 
-      
-      /* to allow scrolling if the screen is not high enough*/
-      overflow: auto; 
-      
-      /* this is used to center the modal */
-      display: grid;
-      text-align: center;
-    }
-    
-    .modal {
-      margin: auto;
-      display: inline-block;
-      box-sizing: border-box;
-      background: #fff;
-      padding: 15px;
-      width: 100%;
-      max-width: 700px;
-      text-align: left;
-    }
-    
-    .modal-close {
-      float: right;
-      -webkit-appearance: none;
-      border: 0;
-      background: none;
-      color: #777;
-      text-decoration: underline;
-    }
-    
-    .modal h1 {
-      margin-top: 0;
-    }
-    
-    .modal p {
-      margin-bottom: 0;
-    }
+* {
+  box-sizing: border-box;
+}
 
+body {
+  background-color: var(--yellow);
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 400;
+  font-size:20px;
+  line-height: 1.6;
+}
 
-    #modal-container {
-      display: none;
-    }
-    
-    #modal-container.is-visible {
-      position: fixed;
-      padding: 20px;
-      box-sizing: border-box;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    
-      /* to show it above other content */
-      z-index: 999; 
-    
-      /* to allow scrolling if the screen is not high enough*/
-      overflow: auto; 
-    
-      /* this is used to center the modal */
-      display: grid;
-      text-align: center;
-    }
+h1 {
+  color: var(--blue);
+  font-size: 50px;
+  font-weight: var(--font-weight-h);
+  margin: 0;
+  padding-left: 10px;
+}
+
+button {
+align-items: center;
+appearance: none;
+background-color: --blue;
+background-image: linear-gradient(1deg, #3b3cc4, #149BF3 99%);
+background-size: calc(100% + 20px) calc(100% + 20px);
+border-radius: 200px;
+border-width: 0;
+box-shadow: none;
+box-sizing: border-box;
+color: #FFFFFF;
+cursor: pointer;
+display: inline-flex;
+font-family: CircularStd,sans-serif;
+font-size: 1rem;
+height: auto;
+justify-content: center;
+line-height: 1.5;
+padding: 30px;
+position: relative;
+text-align: center;
+text-decoration: none;
+transition: background-color .2s,background-position .2s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+vertical-align: top;
+white-space: nowrap;
+}
+
+button:active,
+button:focus {
+outline: none;
+}
+
+button:hover {
+background-position: -20px -20px;
+}
+
+button:focus:not(:active) {
+box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
+
+.container {
+text-align: center;
+align-items: center;
+
+}
+
+#modal-container {
+display: none;
+}
 
 
+#modal-container.is-visible {
+position: fixed;
+padding: 20px;
+box-sizing: border-box;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+
+/* to show the modal above all other content */
+z-index: 999;
+
+/* to allow scrolling if the screen is not high enough */
+overflow: auto;
+
+/* this is used to center the modal */
+display: grid;
+text-align: center;
+}
+
+.modal {
+margin: auto;
+display: inline-block;
+box-sizing: border-box;
+background: #fff;
+padding: 15px;
+width: 100%;
+max-width: 700px;
+text-align: left;
+}
+
+.modal-close {
+float: right;
+-webkit-appearance: none;
+border: 0;
+background: none;
+color: #777;
+text-decoration: underline;
+cursor: pointer;
+}
+
+.modal h1 {
+margin-top: 0;
+}
+
+.modal p {
+margin-bottom: 0;
+}
     
   
