@@ -2,50 +2,99 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  let pokemonListElement = document.querySelector('.pokemon-list');
+  let pokemonListElement = $('.pokemon-list'); 
+
 
   function add(pokemon) {
-    if (
-      typeof pokemon === "object" &&
-      "name" in pokemon
-    ) {
-      pokemonList.push(pokemon);
-    } else {
-      console.log("pokemon is not correct");
+    pokemonList.push(pokemon);
     }
-  }
+
   function getAll() {
     return pokemonList;
-  }
-  function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
-    let button = document.createElement("button");
-    button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
-    button.addEventListener("click", function(event) {
+}
+
+
+
+
+//addListItem 
+
+function addListItem(pokemon) {
+  let listItem = $('<li class="list-group-item"></li>');
+  let button = $('<button class="pokemon-button btn btn-primary" data-target="pokemon-modal" data-toggle="modal">' + pokemon.name +  '</button>');
+  listItem.append(button);
+  pokemonListElement.append(listItem);  
+  button.on('click', function() {
       showDetails(pokemon);
-    });
-  };
+  });
+}
+
+
+// function loadList
 
   function loadList() {
     return fetch(apiUrl).then(function (response) {
-      return response.json();
+      return response.json(); 
     }).then(function (json) {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsUrl: item.url
+          detailsUrl: item.url,
         };
         add(pokemon);
-        console.log(pokemon);
+
       });
     }).catch(function (e) {
       console.error(e);
     })
   }
+
+
+// Hey Christopher, I think this is where the problem starts. I have looked at the modal from the course and also the js code (also the solutions of other students) but I have a knot in my head here. I don't even know if the references I created in the following section are correct. 
+//Also the code seems to have errors, according to VSC.
+//Especially the part from "Creating Element" is difficult for me, could you help me?
+
+
+
+//funtion Modal
+
+function showDetailsModal(item) {
+  let modalBody = $(".modal-body");
+  let modalTitle = $(".modal-title");
+  let modalHeader = $(".modal-header");
+
+  // empty content now
+  modalTitle.empty();
+  modalBody.empty();
+  // done emtpy
+
+
+// creating element for name in Modal
+  let name = $(<h1> + item.name +</h1>)
+
+// creating image in Modal 
+let imageUrl = $("<img class="modal-img" style=" width:50%">");
+
+// creating height in Modal 
+let heightElement = $("<p> + "height : " + item.height + "</p>");
+
+// creating type in Modal 
+let typesElement = $("<p> + ".item.types : " + item.types + "</p>");
+
+// creating abilities in Modal 
+let abilitiesElement = $("<p> + "abilities : " + item.abilities + "</p>");
+
+
+//append
+modalBody.appendChild(imageUrl);
+modalText.appendChild(heightElement);
+modalText.appendChild(typesElement);
+modalText.appendChild(abilitiesElement);
+
+}
+
+
+
+// function LoadList(item)
 
   function loadDetails(item) {
     let url = item.detailsUrl;
@@ -54,72 +103,27 @@ let pokemonRepository = (function () {
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types.map((type) => type.type.name).join(',');
+      item.types = details.types.map((type) => type.type.name);
+      item.abilities = details.abilities.map((abilities) => abilities.ability.name);
     }).catch(function (e) {
       console.error(e);
     });
   }
 
+
+
+
+// function showDetails(item)
+
   function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      showModal(item)
-    });
-  }
-
-
-
-//Modal
-
-
-function showModal(pokemon) {
-let modalContainer = document.querySelector('.modal-container');
-modalContainer.innerText = '';
-
-let modal = document.createElement('div');
-modal.classList.add('modal');
-
-let title = document.createElement('h1');
-title.innerText = pokemon.name;
-
-let pokemonImage = document.createElement('img');
-pokemonImage.src = pokemon.imageUrl;
-
-let pokemonHeight = document.createElement('p');
-pokemonHeight.innerText = "Height: " + pokemon.height;
-
-let pokemonTypes = document.createElement('p');
-pokemonTypes.innerText = "Type: " + pokemon.types;
-
-modal.appendChild(title);
-modal.appendChild(pokemonImage);
-modal.appendChild(pokemonHeight);
-modal.appendChild(pokemonTypes);
-modalContainer.appendChild(modal);
-
-modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-        hideModal();
+         loadDetails(pokemon).then(function () {
+            showDetailsModal(pokemon);
+        });
     }
-})
-
-modalContainer.classList.add('is-visible');
-}
-
-function hideModal() {
-let modalContainer = document.querySelector('.modal-container');
-modalContainer.classList.remove('is-visible');
-}
-
-window.addEventListener('keydown', (e) => {
-let modalContainer = document.querySelector('.modal-container');
-if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();
-}
-});
 
 
-// End Modal
+
+
 
   return {
     add: add,
