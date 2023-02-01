@@ -14,7 +14,7 @@ let pokemonRepository = (function () {
   //addListItem
 
   function addListItem(pokemon) {
-    let listItem = $('<li class="list-group-item"></li>');
+    let listItem = $('<div class="list-group-item"></div>');
     let button = $(
       '<button class="pokemon-button btn btn-primary" data-toggle="modal" data-target="#exampleModal">' +
         pokemon.name +
@@ -67,10 +67,16 @@ let pokemonRepository = (function () {
     const heightParagraph = document.createElement("p");
     const heightNode = document.createTextNode(`${item.height} ft`);
 
+    const img = document.createElement("img");
+    img.src = `${item.imageUrl}`;
+
+    modalBody.append(img)
     nameParagraph.appendChild(nameNode);
     heightParagraph.appendChild(heightNode);
     modalBody.append(nameParagraph);
     modalBody.append(heightParagraph);
+    
+
   }
 
   // function LoadList(item)

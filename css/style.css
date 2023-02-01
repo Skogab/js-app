@@ -1,7 +1,7 @@
 :root {
   /* colors */
-  --yellow: #ffde00;
-  --blue: #3b3cc4;
+  --yellow: #30928a;
+  --blue: #cf8a8a;
 
   /* other properties */
   --font-weight-h: 700;
@@ -70,7 +70,11 @@ button:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 0.125em;
 }
 
-.container {
-  text-align: center;
-  align-items: center;
+.pokemon-list {
+justify-content: space-between;
+  }
+  
+.list-group-item {
+  padding: 0px;
+  margin: 5px 10px;
 }
