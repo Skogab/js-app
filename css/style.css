@@ -72,6 +72,7 @@ button:focus:not(:active) {
 
 .pokemon-list {
 justify-content: space-between;
+display: flex;
   }
   
 .list-group-item {
