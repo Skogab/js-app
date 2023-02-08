@@ -70,10 +70,10 @@ let pokemonRepository = (function () {
     const img = document.createElement("img");
     img.src = `${item.imageUrl}`;
 
-    modalBody.append(img)
     nameParagraph.appendChild(nameNode);
     heightParagraph.appendChild(heightNode);
     modalBody.append(nameParagraph);
+    modalBody.append(img)
     modalBody.append(heightParagraph);
     
 

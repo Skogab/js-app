@@ -1,6 +1,6 @@
 :root {
   /* colors */
-  --yellow: #30928a;
+  --yellow: #e6e6e6;
   --blue: #cf8a8a;
 
   /* other properties */
@@ -27,40 +27,6 @@ h1 {
   padding-left: 10px;
 }
 
-button {
-  align-items: center;
-  appearance: none;
-  background-color: --blue;
-  background-image: linear-gradient(1deg, #3b3cc4, #149bf3 99%);
-  background-size: calc(100% + 20px) calc(100% + 20px);
-  border-radius: 200px;
-  border-width: 0;
-  box-shadow: none;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: CircularStd, sans-serif;
-  font-size: 1rem;
-  height: auto;
-  justify-content: center;
-  line-height: 1.5;
-  padding: 30px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.2s, background-position 0.2s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
-}
-
-button:active,
-button:focus {
-  outline: none;
-}
 
 button:hover {
   background-position: -20px -20px;
@@ -78,4 +44,27 @@ display: flex;
 .list-group-item {
   padding: 0px;
   margin: 5px 10px;
+}
+
+.pokemon-button {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: rgb(86, 141, 74);
+  border-radius: 5px;
+  margin: 10px;
+  width: 200px;
+  transition: 0.4s background-color;
+  color:
+   rgb(255, 255, 255);
+}
+
+
+.pokemon-button:hover {
+  background-color: rgb(230, 77, 17);
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
 }
