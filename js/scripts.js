@@ -59,6 +59,8 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
+    
+    
     //append
 
     const nameParagraph = document.createElement("p");
