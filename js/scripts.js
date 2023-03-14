@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=151";
   let pokemonListElement = $(".pokemon-list");
 
   function add(pokemon) {
@@ -48,19 +48,14 @@ let pokemonRepository = (function () {
       });
   }
 
-  //funtion Modal
+  //function Modal
 
   function showDetailsModal(item) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
     let modalHeader = $(".modal-header");
 
-    // empty content now
-    modalTitle.empty();
-    modalBody.empty();
-
-    
-    
+   
     //append
 
     const nameParagraph = document.createElement("p");
@@ -71,6 +66,9 @@ let pokemonRepository = (function () {
 
     const img = document.createElement("img");
     img.src = `${item.imageUrl}`;
+    img.classList.add("image-modal");
+
+  
 
     nameParagraph.appendChild(nameNode);
     heightParagraph.appendChild(heightNode);
@@ -109,6 +107,12 @@ let pokemonRepository = (function () {
       showDetailsModal(pokemon);
     });
   }
+
+ // empty content now
+ modalTitle.empty();
+ modalBody.empty();
+
+
 
   return {
     add: add,

@@ -1,0 +1,11 @@
+{
+    "env": {
+    "jQuery": true
+    },
+    "extends": [
+    "eslint:recommended"
+    ],
+    "rules": {
+    "quotes": ["double"]
+    }
+    }
