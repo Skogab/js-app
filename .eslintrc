@@ -1,6 +1,6 @@
 {
     "env": {
-    "jQuery": true
+    "jquery": true
     },
     "extends": [
     "eslint:recommended"
