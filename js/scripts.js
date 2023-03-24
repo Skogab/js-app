@@ -14,9 +14,9 @@ let pokemonRepository = (function () {
   //addListItem
 
   function addListItem(pokemon) {
-    let listItem = $('<div class="list-group-item"></div>');
+    let listItem = $("<div class=\"list-group-item\"></div>");
     let button = $(
-      '<button class="pokemon-button btn btn-primary" data-toggle="modal" data-target="#exampleModal">' +
+      "<button class=\"pokemon-button btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModal\">" +
         pokemon.name +
         "</button>"
     );
@@ -52,8 +52,6 @@ let pokemonRepository = (function () {
 
   function showDetailsModal(item) {
     let modalBody = $(".modal-body");
-    let modalTitle = $(".modal-title");
-    let modalHeader = $(".modal-header");
 
    
     //append
@@ -109,7 +107,9 @@ let pokemonRepository = (function () {
   }
 
  // empty content now
+ // eslint-disable-next-line no-undef
  modalTitle.empty();
+ // eslint-disable-next-line no-undef
  modalBody.empty();
 
 
